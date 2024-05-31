@@ -1,1 +1,1 @@
-Simple chess game in console.
+Ship sinking game in console.
