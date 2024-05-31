@@ -1,1 +1,1 @@
-Chess game in console
+Chess game in console.
