@@ -24,7 +24,8 @@ def zapocni_igru():
             ispisi_tablu(tabla)
             x = input("Unesite X koordinate broda: ")
             y = input("Unesite Y koordinate broda: ")
-            postavi_brod(tabla, 4, x, y, "h")
+            smer = input("Unesite smer broda (h/v): ")
+            postavi_brod(tabla, 4, x, y, smer)
             kolicina_brodova -= 1
             ispisi_tablu(tabla)
         print("Postavili ste sve brodove! Sada neprijatelj postavlja svoje brodove.")
@@ -60,8 +61,35 @@ def postavi_brod(tabla, brod, x, y, smer):
 def neprijatelj_postavlja_brodove():
     kolicina_brodova = 15
     while kolicina_brodova > 0:
+        tabla = [ ["."]*10 for i in range(10) ]
         x = random.randint(0, 9)
         y = random.randint(0, 9)
+        smer = random.choice(["h", "v"])
+        postavi_brod(tabla, 4, x, y, smer)
+        kolicina_brodova -= 1
+
+def gađaj(tabla):
+    x = input("Unesite X koordinate gađanja: ")
+    y = input("Unesite Y koordinate gađanja: ")
+    if tabla[x][y] == "X":
+        print("Pogodak!")
+        tabla[x][y] = "O"
+        ispisi_tablu(tabla)
+    else:
+        print("Promašaj!")
+        ispisi_tablu(tabla)
+    print("Neprijatelj gađa...")
+
+def neprijatelj_gađa(tabla):
+    x = random.randint(0, 9)
+    y = random.randint(0, 9)
+    if tabla[x][y] == "X":
+        print("Neprijatelj je pogodio vaš brod!")
+        tabla[x][y] = "O"
+        ispisi_tablu(tabla)
+    else:
+        print("Neprijatelj je promašio!")
+        ispisi_tablu(tabla)
 
     
 # postavi_brod([["."]*10 for i in range(10)], 4, 3, 4, "v")
