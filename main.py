@@ -1,2 +1,2 @@
-# Chess console application
+# Ship sinking console application
 
