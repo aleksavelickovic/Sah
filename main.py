@@ -1,6 +1,4 @@
 # Ship sinking console application
-# Test Test test
-# Testttt
 
 import random
 
