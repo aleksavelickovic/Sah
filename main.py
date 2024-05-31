@@ -9,27 +9,26 @@ def uvod():
     print("Smer može biti horizontalan (h) ili vertikalan (v).")
     print("Srećno!")
     print()
-    input = input("Unesite Y za početak igre: ")
-    if input == "Y" or input == "y":
-        return True
+    izbor = input("Unesite Y za početak igre: ")
+    if izbor == "Y" or izbor == "y":
+        zapocni_igru()
     else:
         return False
     
 def zapocni_igru():
-    if uvod == True:
-        kolicina_brodova = 15
-        print("Igra je počela!")
-        while kolicina_brodova > 0:
-            tabla = [ ["."]*10 for i in range(10) ]
-            ispisi_tablu(tabla)
-            x = input("Unesite X koordinate broda: ")
-            y = input("Unesite Y koordinate broda: ")
-            smer = input("Unesite smer broda (h/v): ")
-            postavi_brod(tabla, 4, x, y, smer)
-            kolicina_brodova -= 1
-            ispisi_tablu(tabla)
-        print("Postavili ste sve brodove! Sada neprijatelj postavlja svoje brodove.")
-        neprijatelj_postavlja_brodove()
+    kolicina_brodova = 15
+    print("Igra je počela!")
+    while kolicina_brodova > 0:
+        tabla = [ ["."]*10 for i in range(10) ]
+        ispisi_tablu(tabla)
+        x = input("Unesite X koordinate broda: ")
+        y = input("Unesite Y koordinate broda: ")
+        smer = input("Unesite smer broda (h/v): ")
+        postavi_brod(tabla, 4, x, y, smer)
+        kolicina_brodova -= 1
+        ispisi_tablu(tabla)
+    print("Postavili ste sve brodove! Sada neprijatelj postavlja svoje brodove.")
+    neprijatelj_postavlja_brodove()
 
 
 def ispisi_tablu(tabla):
@@ -40,7 +39,7 @@ def ispisi_tablu(tabla):
             print(tabla[i][j], end=" ")
         print()
 
-ispisi_tablu([["."]*10 for i in range(10)])
+# ispisi_tablu([["."]*10 for i in range(10)])
 
 def postavi_brod(tabla, brod, x, y, smer):
     if smer == "h":
@@ -103,6 +102,8 @@ def proveri_pobedu(tabla):
             if tabla[i][j] == "X":
                 return False
     return True
+
+uvod()
 
     
 # postavi_brod([["."]*10 for i in range(10)], 4, 3, 4, "v")
