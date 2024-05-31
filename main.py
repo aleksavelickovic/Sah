@@ -78,6 +78,9 @@ def gađaj(tabla):
     else:
         print("Promašaj!")
         ispisi_tablu(tabla)
+    if proveri_pobedu(tabla) == True:
+        print("Pobedili ste!")
+        return True
     print("Neprijatelj gađa...")
 
 def neprijatelj_gađa(tabla):
@@ -90,6 +93,16 @@ def neprijatelj_gađa(tabla):
     else:
         print("Neprijatelj je promašio!")
         ispisi_tablu(tabla)
+    if proveri_pobedu(tabla) == True:
+        print("Izgubili ste!")
+        return True  
+
+def proveri_pobedu(tabla):
+    for i in range(10):
+        for j in range(10):
+            if tabla[i][j] == "X":
+                return False
+    return True
 
     
 # postavi_brod([["."]*10 for i in range(10)], 4, 3, 4, "v")
