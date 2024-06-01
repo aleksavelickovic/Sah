@@ -1,5 +1,4 @@
 # Ship sinking console application
-# Git test
 
 import random
 
